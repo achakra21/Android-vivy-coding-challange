@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="doctorViewModel"
+            type="com.abhijit.vivy_codingtest.ui.doctors.DotcorsViewModel" />
+
+        <variable
+            name="doctors"
+            type="com.abhijit.vivy_codingtest.data.remote.model.Doctor" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0.7dp"
+            app:cardMaxElevation="1dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp"
+
+            app:contentPaddingBottom="0dp">
+
+            <LinearLayout
+                android:id="@+id/itemView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgTaxi"
+                    android:layout_width="0dp"
+
+                    android:layout_height="match_parent"
+                    app:profileImage="@{doctors.photoId }"
+                    android:layout_weight="2" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{doctors.name}"
+                        android:textAppearance="?attr/textAppearanceListItem"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{doctors.address}"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+
+                    <RatingBar
+                        android:id="@+id/ratings"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:rating="@{doctors.rating}" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

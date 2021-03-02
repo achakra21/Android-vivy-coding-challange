@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="doctorViewModel"
+            type="com.abhijit.vivy_codingtest.ui.doctors.DotcorsViewModel" />
+
+        <variable
+            name="doctor"
+            type="com.abhijit.vivy_codingtest.data.remote.model.Doctor" />
+
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        android:background="@color/white"
+        android:paddingBottom="?attr/actionBarSize">
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/imgTaxi"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:passportImage="@{doctor.photoId}"
+             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_margin"
+            android:text="@{@string/name(doctor.name)}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_margin"
+            android:text="@{@string/address(doctor.address)}"/>
+
+
+ </LinearLayout>
+</layout>
